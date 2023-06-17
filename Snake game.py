@@ -1,11 +1,11 @@
-# 1 Imports
+# Imports
 import random
 import pygame
 from pygame.math import Vector2
 import sys
 
 
-# 5 sssss
+# sssss
 class SNAKE:
     def __init__(self):
         self.head = None
@@ -14,7 +14,7 @@ class SNAKE:
         self.direction = Vector2(0, 0)
         self.new_block = False
 
-        # 9 Graphics for snake
+        # Graphics for snake
         self.hu = pygame.image.load("Imports/head_up.png").convert_alpha()
         self.hd = pygame.image.load("Imports/head_down.png").convert_alpha()
         self.hr = pygame.image.load("Imports/head_right.png").convert_alpha()
@@ -121,7 +121,7 @@ class SNAKE:
         self.direction = Vector2(0, 0)
 
 
-# 4 nom nom nom
+# nom nom nom
 class FRUIT:
     def __init__(self):
         self.x = None
@@ -131,7 +131,7 @@ class FRUIT:
 
     # Creating fruit
     def draw_apple(self):
-        # (fruit x, fruit y, x size, y size)
+        # (x pos, y pos, x size, y size)
         apple_shape = pygame.Rect(int(self.pos.x * cell_size), int(self.pos.y * cell_size), cell_size, cell_size)
         screen.blit(apple, apple_shape)
         # pygame.draw.rect(screen, (200, 50, 50), apple_shape)
@@ -142,7 +142,7 @@ class FRUIT:
         self.pos = Vector2(self.x, self.y)
 
 
-# 7 game system
+# Game System
 class MAIN:
     def __init__(self):
         self.snake = SNAKE()
@@ -220,9 +220,10 @@ class MAIN:
         pygame.draw.rect(screen, (25, 25, 25), box_pos, 2)
 
 
-# 2 Screen
 pygame.mixer.pre_init(44100, -16, 2, 512)
 pygame.init()
+
+# Screen
 cell_size = 40
 cell_number = 20
 screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
@@ -239,7 +240,7 @@ pygame.time.set_timer(SCREEN_UPDATE, 150)
 
 main_game = MAIN()
 
-# 3 What appears
+# Event
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -248,7 +249,7 @@ while True:
         if event.type == SCREEN_UPDATE:
             main_game.update()
 
-        # 6 Key inputs
+        # Key Inputs
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 if main_game.snake.direction.y != 1:
